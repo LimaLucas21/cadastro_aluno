@@ -16,7 +16,7 @@ namespace EX01
     {
         static void Main(string[] args)
         {
-            string connectionString = "Server=DESKTOP-2R2HF9V;Database=aluno_bd;Integrated Security=true;"; // Substitua pelo seu
+            string connectionString = "Server=DESKTOP-2R2HF9V;Database=aluno_bd;Integrated Security=true;"; 
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -45,7 +45,7 @@ namespace EX01
                             alunos.Add(novoAluno);
                             Console.WriteLine("Aluno cadastrado com sucesso");
 
-                            // Inserindo dados no banco de dados
+                         
                             string sql = "INSERT INTO dbo.alunos (nome, idade, nota) VALUES (@nome, @idade, @nota)";
                             using (SqlCommand command = new SqlCommand(sql, connection))
                             {
@@ -69,7 +69,7 @@ namespace EX01
                             using (SqlCommand command = new SqlCommand(sql, connection))
                             {
                                 command.Parameters.AddWithValue("@nome", nome);
-                                // Aqui você pode executar a consulta e processar o resultado, se necessário.
+                               
                                 using (SqlDataReader reader = command.ExecuteReader())
                                 {
                                     if (reader.Read())
